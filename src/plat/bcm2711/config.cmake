@@ -21,7 +21,7 @@ if(KernelPlatformRpi4)
     config_set(KernelARMPlatform ARM_PLAT rpi4)
     set(KernelArmMachFeatureModifiers "+crc" CACHE INTERNAL "")
     list(APPEND KernelDTSList "tools/dts/rpi4.dts")
-    list(APPEND KernelDTSList "src/plat/bcm2837/overlay-rpi4.dts")
+    list(APPEND KernelDTSList "src/plat/bcm2711/overlay-rpi4.dts")
 
     declare_default_headers(
         TIMER_FREQUENCY 19200000llu
