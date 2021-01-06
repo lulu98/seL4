@@ -35,6 +35,7 @@ config_choice(KernelARMPlatform ARM_PLAT "Select the platform for the architectu
     "tk1;KernelPlatformTK1;PLAT_TK1;KernelSel4ArchAarch32 OR KernelSel4ArchArmHyp"
     "hikey;KernelPlatformHikey;PLAT_HIKEY;KernelArchARM"
     "rpi3;KernelPlatformRpi3;PLAT_BCM2837;KernelSel4ArchAarch32"
+    "rpi4;KernelPlatformRpi4;PLAT_BCM2711;KernelSel4ArchAarch32"
     "tx1;KernelPlatformTx1;PLAT_TX1;KernelSel4ArchAarch64"
 )
 
@@ -81,6 +82,7 @@ include(src/plat/am335x/config.cmake)
 include(src/plat/hikey/config.cmake)
 include(src/plat/apq8064/config.cmake)
 include(src/plat/bcm2837/config.cmake)
+include(src/plat/bcm2711/config.cmake)
 include(src/plat/tk1/config.cmake)
 include(src/plat/tx1/config.cmake)
 include(src/plat/zynq7000/config.cmake)
