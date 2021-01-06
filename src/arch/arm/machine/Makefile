@@ -29,7 +29,7 @@ endif
 endif
 
 # platforms that use the generic timer
-ifeq ($(PLAT), $(filter $(PLAT), exynos5 bcm2837 hikey tk1 tx1 zynqmp imx7))
+ifeq ($(PLAT), $(filter $(PLAT), exynos5 bcm2837 bcm2711 hikey tk1 tx1 zynqmp imx7))
 	ARCH_C_SOURCES += machine/generic_timer.c
 endif
 
