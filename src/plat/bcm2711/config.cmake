@@ -14,9 +14,10 @@ cmake_minimum_required(VERSION 3.7.2)
 
 if(KernelPlatformRpi4)
     set(KernelArmCortexA53 ON)
-    set(KernelArchArmV8a ON)
+    set(KernelArchArmV7a ON)
+    config_set(KernelPlatformRPi4 PLAT_BCM2711 ON)
     config_set(KernelPlatform PLAT "bcm2711")
-    set(KernelArmMachFeatureModifiers "+crc" CACHE INTERNAL "")
+    set(KernelArmMach "rpi" CACHE INTERNAL "")
 endif()
 
 add_sources(
