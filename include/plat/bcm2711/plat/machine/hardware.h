@@ -25,9 +25,14 @@
 
 static const kernel_frame_t BOOT_RODATA kernel_devices[] = {
     {
-        /* BCM2837 Interrupt controller */
-        INTC_PADDR,
-        INTC_PPTR,
+        /*  GIC */
+        GIC_V2_CONTROLLER_PADDR,
+        GIC_V2_CONTROLLER_PPTR,
+        true  /* armExecuteNever */
+    },
+    {
+        GIC_V2_DISTRIBUTOR_PADDR,
+        GIC_V2_DISTRIBUTOR_PPTR,
         true  /* armExecuteNever */
     },
     {
@@ -61,6 +66,8 @@ const p_region_t BOOT_RODATA dev_p_regs[] = {
     { /* .start */ UART_PADDR           , /* .end */ UART_PADDR      + (1u << PAGE_BITS) },
     { /* .start */ TIMER_PADDR          , /* .end */ TIMER_PADDR     + (1u << PAGE_BITS) },
     { /* .start */ SYSTEM_TIMER_PADDR   , /* .end */ SYSTEM_TIMER_PADDR     + (1u << PAGE_BITS) },
+    { /* .start */ GIC_V2_DISTRIBUTOR_PADDR, /* .end */ GIC_V2_DISTRIBUTOR_PADDR  + (1u << PAGE_BITS) },
+    { /* .start */ GIC_V2_CONTROLLER_PADDR, /* .end */ GIC_V2_CONTROLLER_PADDR  + (1u << PAGE_BITS) },
 };
 
 void initL2Cache(void);

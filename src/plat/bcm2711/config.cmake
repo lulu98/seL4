@@ -24,7 +24,7 @@ add_sources(
     CFILES
         src/plat/bcm2711/machine/hardware.c
         src/plat/bcm2711/machine/io.c
-        src/plat/bcm2711/machine/intc.c
         src/plat/bcm2711/machine/l2cache.c
         src/arch/arm/machine/generic_timer.c
+        src/arch/arm/machine/gic_v2.c
 )
