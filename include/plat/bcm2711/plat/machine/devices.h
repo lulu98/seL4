@@ -24,15 +24,20 @@
 #define ARM_TIMER_BUSADDR           0x7E00B000
 
 #define UART_PPTR                   0xFFF01000
-#define INTC_PPTR                   0xFFF02000
-#define TIMER_PPTR                  0xFFF03000
-#define ARM_LOCAL_PPTR              0xFFF04000
+#define GIC_DISTRIBUTOR_PPTR        0xFFF02000
+#define GIC_CONTROLLER_PPTR         0xFFF03000
+#define TIMER_PPTR                  0xFFF04000
+#define ARM_LOCAL_PPTR              0xFFF05000
 
 #define ARM_LOCAL_PADDR             0x40000000
 
 /* We convert from the VC CPU BUS addresses to ARM Physical addresses due to the extra
     VC (Video controller) MMU */
-#define INTC_PADDR                  0x40040000
+#define GIC_PADDR                   0x40040000
+#define GIC_DISTRIBUTOR_PADDR       GIC_PADDR + 0x1000
+#define GIC_CONTROLLER_PADDR        GIC_PADDR + 0x2000
+#define GIC_PL390_CONTROLLER_PPTR   GIC_CONTROLLER_PPTR
+#define GIC_PL390_DISTRIBUTOR_PPTR  GIC_DISTRIBUTOR_PPTR
 #define UART_PADDR                  (UART_BUSADDR-BUS_ADDR_OFFSET+PADDDR_OFFSET)
 #define SDHC_PADDR                  (SDHC_BUSADDR-BUS_ADDR_OFFSET+PADDDR_OFFSET)
 #define USB2_PADDR                  (USB2_BUSADDR-BUS_ADDR_OFFSET+PADDDR_OFFSET)

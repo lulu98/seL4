@@ -24,10 +24,15 @@
 #define kernelBase        0xe0000000
 
 static const kernel_frame_t BOOT_RODATA kernel_devices[] = {
+   {
+        /*  GIC */
+        GIC_CONTROLLER_PADDR,
+        GIC_PL390_CONTROLLER_PPTR,
+        true  /* armExecuteNever */
+    },
     {
-        /* BCM2837 Interrupt controller */
-        INTC_PADDR,
-        INTC_PPTR,
+        GIC_DISTRIBUTOR_PADDR,
+        GIC_PL390_DISTRIBUTOR_PPTR,
         true  /* armExecuteNever */
     },
     {
@@ -62,6 +67,12 @@ const p_region_t BOOT_RODATA dev_p_regs[] = {
     { /* .start */ TIMER_PADDR          , /* .end */ TIMER_PADDR     + (1u << PAGE_BITS) },
     { /* .start */ SYSTEM_TIMER_PADDR   , /* .end */ SYSTEM_TIMER_PADDR     + (1u << PAGE_BITS) },
 };
+
+/* Handle a platform-reserved IRQ. */
+static inline void
+handleReservedIRQ(irq_t irq)
+{
+}
 
 void initL2Cache(void);
 
