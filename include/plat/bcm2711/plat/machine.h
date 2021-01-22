@@ -15,12 +15,12 @@
 #include <plat/machine/devices.h>
 #include <machine/io.h>
 
-#define N_INTERRUPTS     216
+#define N_INTERRUPTS     96
 
-#define BASIC_IRQ_OFFSET                64
-#define NORMAL_IRQ_OFFSET               (BASIC_IRQ_OFFSET + 32) //96
+#define BASIC_IRQ_OFFSET                32
+#define NORMAL_IRQ_OFFSET               (BASIC_IRQ_OFFSET + 32)
 
-#define MAX_IRQ (216)
+#define MAX_IRQ (32 + 32 + 64 -1)
 enum IRQConstants {
     INTERRUPT_CORE_CNTPSIRQ                  =  0,
     INTERRUPT_CORE_CNTPNSIRQ                 =  1,
@@ -60,6 +60,10 @@ enum IRQConstants {
     INTERRUPT_BASIC_IRQ_GPU_IRQ_62           = (BASIC_IRQ_OFFSET + 20),
     // 31:21 <unused>
 
+    INTERRUPT_IRQ_ST0                        = (NORMAL_IRQ_OFFSET + 0),
+    INTERRUPT_IRQ_ST1                        = (NORMAL_IRQ_OFFSET + 1),
+    INTERRUPT_IRQ_ST2                        = (NORMAL_IRQ_OFFSET + 2),
+    INTERRUPT_IRQ_ST3                        = (NORMAL_IRQ_OFFSET + 3),
     INTERRUPT_IRQ_AUX                        = (NORMAL_IRQ_OFFSET + 29),
     INTERRUPT_IRQ_I2C_SPI_SLV                = (NORMAL_IRQ_OFFSET + 43),
     INTERRUPT_IRQ_PWA0                       = (NORMAL_IRQ_OFFSET + 45),
