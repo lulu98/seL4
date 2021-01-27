@@ -108,6 +108,10 @@ menu "seL4 System"
         bool
         default n
 
+    config ARM_CORTEX_A72
+        bool
+        default n
+
     config PLAT_EXYNOS5
         bool
         default n
@@ -303,9 +307,9 @@ menu "seL4 System"
                 Support for HiKey platform.
         
         config PLAT_BCM2711
-            bool "Raspberry Pi 4 (BCM2711, ARMv8a, Cortex A53)"
-            depends on ARCH_AARCH32
-            select ARM_CORTEX_A53
+            bool "Raspberry Pi 4 (BCM2711, ARMv8a, Cortex A72)"
+            depends on ARCH_AARCH64
+            select ARM_CORTEX_A72
             select ARCH_ARM_V8A
             help
                 Support for Raspberry PI 4 platform.

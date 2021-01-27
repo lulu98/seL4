@@ -13,7 +13,7 @@
 cmake_minimum_required(VERSION 3.7.2)
 
 if(KernelPlatformRpi4)
-    set(KernelArmCortexA53 ON)
+    set(KernelArmCortexA72 ON)
     set(KernelArchArmV8a ON)
     config_set(KernelPlatform PLAT "bcm2711")
     set(KernelArmMachFeatureModifiers "+crc" CACHE INTERNAL "")

@@ -35,7 +35,7 @@ config_choice(KernelARMPlatform ARM_PLAT "Select the platform for the architectu
     "tk1;KernelPlatformTK1;PLAT_TK1;KernelSel4ArchAarch32 OR KernelSel4ArchArmHyp"
     "hikey;KernelPlatformHikey;PLAT_HIKEY;KernelArchARM"
     "rpi3;KernelPlatformRpi3;PLAT_BCM2837;KernelSel4ArchAarch32"
-    "rpi4;KernelPlatformRpi4;PLAT_BCM2711;KernelSel4ArchAarch32"
+    "rpi4;KernelPlatformRpi4;PLAT_BCM2711;KernelSel4ArchAarch64"
     "tx1;KernelPlatformTx1;PLAT_TX1;KernelSel4ArchAarch64"
 )
 
@@ -67,6 +67,7 @@ set(KernelArmCortexA9 OFF)
 set(KernelArmCortexA15 OFF)
 set(KernelArmCortexA53 OFF)
 set(KernelArmCortexA57 OFF)
+set(KernelArmCortexA72 OFF)
 set(KernelArchArmV6 OFF)
 set(KernelArchArmV7a OFF)
 set(KernelArchArmV7ve OFF)
@@ -94,6 +95,7 @@ config_set(KernelArmCortexA9 ARM_CORTEX_A9 "${KernelArmCortexA9}")
 config_set(KernelArmCortexA15 ARM_CORTEX_A15 "${KernelArmCortexA15}")
 config_set(KernelArmCortexA53 ARM_CORTEX_A53 "${KernelArmCortexA53}")
 config_set(KernelArmCortexA57 ARM_CORTEX_A57 "${KernelArmCortexA57}")
+config_set(KernelArmCortexA72 ARM_CORTEX_A72 "${KernelArmCortexA72}")
 config_set(KernelArm1136JF_S ARM1136JF_S "${KernelArm1136JF_S}")
 config_set(KernelArchArmV6 ARCH_ARM_V6 "${KernelArchArmV6}")
 config_set(KernelArchArmV7a ARCH_ARM_V7A "${KernelArchArmV7a}")
@@ -127,6 +129,8 @@ elseif(KernelArmCortexA53)
     set(KernelArmCPU "cortex-a53" CACHE INTERNAL "")
 elseif(KernelArmCortexA57)
     set(KernelArmCPU "cortex-a57" CACHE INTERNAL "")
+elseif(KernelArmCortexA72)
+    set(KernelArmCPU "cortex-a72" CACHE INTERNAL "")
 elseif(KernelArm1136JF_S)
     set(KernelArmCPU "arm1136jf-s" CACHE INTERNAL "")
 endif()
@@ -331,7 +335,7 @@ add_sources(
 )
 
 add_sources(
-    DEP "KernelArmCortexA53"
+    DEP "KernelArmCortexA72"
     CFILES src/arch/arm/machine/gic_v2.c
 )
 

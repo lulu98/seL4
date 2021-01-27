@@ -10,4 +10,4 @@
 -- @TAG(DATA61_GPL)
 --
 
-base 32
+base 64

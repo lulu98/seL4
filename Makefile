@@ -17,7 +17,7 @@
 
 SEL4_ARCH_LIST:=aarch32 aarch64 ia32 x86_64 riscv32 riscv64
 ARCH_LIST:=arm x86 riscv
-CPU_LIST:=arm1136jf-s ixp420 cortex-a7 cortex-a8 cortex-a9 cortex-a15 cortex-a53 cortex-a57
+CPU_LIST:=arm1136jf-s ixp420 cortex-a7 cortex-a8 cortex-a9 cortex-a15 cortex-a53 cortex-a57 cortex-a72
 PLAT_LIST:=imx31 pc99 ixp420 omap3 am335x exynos4 exynos5 imx6 imx7 apq8064 zynq7000 zynqmp allwinnerA20 tk1 hikey bcm2837 bcm2711 tx1 spike
 ARMV_LIST:=armv6 armv7-a armv8-a
 
@@ -368,17 +368,20 @@ endif
 ifeq ($(PLAT),bcm2837)
 DEFINES += -DBCM2837
 endif
-ifeq ($(PLAT),bcm2711)
-DEFINES += -DBCM2711
-endif
 endif # SEL4_ARCH=aarch32
 ifeq (${SEL4_ARCH}, aarch64)
 DEFINES += -D__KERNEL_64__ -DAARCH64
 TYPE_SUFFIX:=64
 export __ARM_64__ = y
+ifeq ($(PLAT),bcm2711)
+DEFINES += -DBCM2711
+endif
 endif # SEL4_ARCH=aarch64
 ifeq (${CPU},cortex-a53)
 DEFINES += -DARM_CORTEX_A53
+endif
+ifeq (${CPU},cortex-a72)
+DEFINES += -DARM_CORTEX_A72
 endif
 ifeq ($(PLAT),hikey)
 DEFINES += -DHIKEY

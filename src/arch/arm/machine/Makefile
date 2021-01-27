@@ -31,7 +31,6 @@ endif
 # platforms that use the generic timer
 ifeq ($(PLAT), $(filter $(PLAT), exynos5 bcm2837 bcm2711 hikey tk1 tx1 zynqmp imx7))
 	ARCH_C_SOURCES += machine/generic_timer.c
-	ARCH_C_SOURCES += machine/gic_v2.c
 endif
 
 ifeq ($(CPU), $(filter $(CPU), cortex-a15 cortex-a7 cortex-a57))
@@ -41,4 +40,8 @@ endif
 
 ifeq ($(PLAT), $(filter $(PLAT), zynqmp hikey))
     ARCH_C_SOURCES += machine/gic_pl390.c
+endif
+
+ifeq ($(PLAT), $(filter $(PLAT), bcm2711))
+    ARCH_C_SOURCES += machine/gic_v2.c
 endif

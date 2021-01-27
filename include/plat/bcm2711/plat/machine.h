@@ -22,18 +22,13 @@
 
 #define MAX_IRQ (216)
 enum IRQConstants {
-    INTERRUPT_CORE_CNTPSIRQ                  =  0,
-    INTERRUPT_CORE_CNTPNSIRQ                 =  1,
-    INTERRUPT_CORE_CNTHPIRQ                  =  2,
-    INTERRUPT_CORE_CNTVIRQ                   =  3,
-    INTERRUPT_CORE_MAILBOX_0                 =  4,
-    INTERRUPT_CORE_MAILBOX_1                 =  5,
-    INTERRUPT_CORE_MAILBOX_2                 =  6,
-    INTERRUPT_CORE_MAILBOX_3                 =  7,
-    INTERRUPT_CORE_GPU                       =  8,
-    INTERRUPT_CORE_PMU                       =  9,
-    INTERRUPT_CORE_AXI                       = 10,
-    INTERRUPT_CORE_LOCAL_TIMER               = 11,
+    INTERRUPT_CORE_CNTHVSIRQ                  =  19,
+    INTERRUPT_CORE_CNTHPSIRQ                  =  20,
+    INTERRUPT_CORE_CNTHPIRQ                   =  26,
+    INTERRUPT_CORE_CNTVIRQ                    =  27,
+    INTERRUPT_CORE_CNTHVIRQ                   =  28,
+    INTERRUPT_CORE_CNTPSIRQ                   =  29,
+    INTERRUPT_CORE_CNTPIRQ                    =  30,
     //17:12 Peripheral 1..15 interrupt (Currently not used)
     //31:28 <Reserved>
 
@@ -80,7 +75,7 @@ enum IRQConstants {
     maxIRQ = MAX_IRQ
 } platform_interrupt_t;
 
-#define IRQ_CNODE_BITS 12
+#define IRQ_CNODE_BITS 15
 
 #define KERNEL_TIMER_IRQ INTERRUPT_CORE_CNTVIRQ
 
