@@ -21,7 +21,10 @@
 #include <machine/io.h>
 
 #define physBase          0x00000000
-#define kernelBase        0xe0000000
+//#define kernelBase        0xe0000000
+#define kernelBase          0xffffff8000000000
+#define USER_TOP            0x00007fffffffffff
+
 
 static const kernel_frame_t BOOT_RODATA kernel_devices[] = {
     {
